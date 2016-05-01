@@ -27,4 +27,5 @@ Fully tested model, service and builder. Partially tested controller, need more.
   1. NSURLComponents cannot take nil url to parse, take it as Error and handle it. 
   2. Handle token invalid or login invalid like message from backend rather then NSError, create NSError by self.
 
-# Issue framework has leaking some how. Need more time to investigate.
+# Issue 
+Chart framework has leaking some how. Need more time to investigate.
