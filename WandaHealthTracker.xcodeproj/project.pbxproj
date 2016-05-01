@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D13E8F81CD56C03001B6B03 /* WDLoginManager+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D13E8F71CD56C03001B6B03 /* WDLoginManager+Test.m */; };
+		0D5CBEB61CD5A3070084B2E6 /* WDMeasurementGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CBEB51CD5A3070084B2E6 /* WDMeasurementGeneral.m */; };
+		0D5CBEB91CD5AB5E0084B2E6 /* WDMeasurementBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5CBEB81CD5AB5E0084B2E6 /* WDMeasurementBuilder.m */; };
 		0D7365A31CD15FF7004EE3D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7365A21CD15FF7004EE3D2 /* main.m */; };
 		0D7365A61CD15FF7004EE3D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7365A51CD15FF7004EE3D2 /* AppDelegate.m */; };
 		0D7365A91CD15FF7004EE3D2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7365A81CD15FF7004EE3D2 /* ViewController.m */; };
@@ -14,6 +17,19 @@
 		0D7365AE1CD15FF7004EE3D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D7365AD1CD15FF7004EE3D2 /* Assets.xcassets */; };
 		0D7365B11CD15FF7004EE3D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D7365AF1CD15FF7004EE3D2 /* LaunchScreen.storyboard */; };
 		0D7365BC1CD15FF7004EE3D2 /* WandaHealthTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7365BB1CD15FF7004EE3D2 /* WandaHealthTrackerTests.m */; };
+		0D7365CC1CD16239004EE3D2 /* PatientMeasurementService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7365CB1CD16239004EE3D2 /* PatientMeasurementService.m */; };
+		0D7365D01CD1632B004EE3D2 /* WDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7365CF1CD1632B004EE3D2 /* WDConstants.m */; };
+		0D7365D21CD173FC004EE3D2 /* WDLoginManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7365D11CD173FC004EE3D2 /* WDLoginManagerTest.m */; };
+		0D7365D81CD1887C004EE3D2 /* WDLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7365D71CD1887C004EE3D2 /* WDLoginManager.m */; };
+		0D7365DB1CD18DE4004EE3D2 /* WDHistoryDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7365DA1CD18DE4004EE3D2 /* WDHistoryDisplayer.m */; };
+		0D7366061CD2BF31004EE3D2 /* angle-mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D7366021CD2BF31004EE3D2 /* angle-mask@2x.png */; };
+		0D7366071CD2BF31004EE3D2 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0D7366031CD2BF31004EE3D2 /* LICENSE.txt */; };
+		0D7366081CD2BF31004EE3D2 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7366051CD2BF31004EE3D2 /* SVProgressHUD.m */; };
+		0D81C65E1CD574D600A602EF /* WDMeasurementTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D81C65D1CD574D600A602EF /* WDMeasurementTest.m */; };
+		0DBEC4ED1CD52C3200739036 /* WDMeasurement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEC4EC1CD52C3200739036 /* WDMeasurement.m */; };
+		0DBEC65D1CD5303E00739036 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBEC6561CD5302D00739036 /* Charts.framework */; };
+		0DBEC65E1CD5303E00739036 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBEC6561CD5302D00739036 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0DBEC6741CD5404300739036 /* WSDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEC6731CD5404300739036 /* WSDUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,9 +40,65 @@
 			remoteGlobalIDString = 0D73659D1CD15FF7004EE3D2;
 			remoteInfo = WandaHealthTracker;
 		};
+		0DBEC6551CD5302D00739036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DBEC64E1CD5302C00739036 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		0DBEC6571CD5302D00739036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DBEC64E1CD5302C00739036 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		0DBEC6591CD5302D00739036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DBEC64E1CD5302C00739036 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		0DBEC65B1CD5302D00739036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DBEC64E1CD5302C00739036 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		0DBEC65F1CD5303E00739036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DBEC64E1CD5302C00739036 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0DBEC6611CD5303F00739036 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0DBEC65E1CD5303E00739036 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0D13E8F61CD56C03001B6B03 /* WDLoginManager+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WDLoginManager+Test.h"; sourceTree = "<group>"; };
+		0D13E8F71CD56C03001B6B03 /* WDLoginManager+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WDLoginManager+Test.m"; sourceTree = "<group>"; };
+		0D5CBEB41CD5A3070084B2E6 /* WDMeasurementGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDMeasurementGeneral.h; path = Models/WDMeasurementGeneral.h; sourceTree = "<group>"; };
+		0D5CBEB51CD5A3070084B2E6 /* WDMeasurementGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WDMeasurementGeneral.m; path = Models/WDMeasurementGeneral.m; sourceTree = "<group>"; };
+		0D5CBEB71CD5AB5E0084B2E6 /* WDMeasurementBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMeasurementBuilder.h; sourceTree = "<group>"; };
+		0D5CBEB81CD5AB5E0084B2E6 /* WDMeasurementBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDMeasurementBuilder.m; sourceTree = "<group>"; };
+		0D5CBEBA1CD5B1BF0084B2E6 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		0D73659E1CD15FF7004EE3D2 /* WandaHealthTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WandaHealthTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7365A21CD15FF7004EE3D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0D7365A41CD15FF7004EE3D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,6 +112,26 @@
 		0D7365B71CD15FF7004EE3D2 /* WandaHealthTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WandaHealthTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7365BB1CD15FF7004EE3D2 /* WandaHealthTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WandaHealthTrackerTests.m; sourceTree = "<group>"; };
 		0D7365BD1CD15FF7004EE3D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D7365CA1CD16239004EE3D2 /* PatientMeasurementService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientMeasurementService.h; sourceTree = "<group>"; };
+		0D7365CB1CD16239004EE3D2 /* PatientMeasurementService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientMeasurementService.m; sourceTree = "<group>"; };
+		0D7365CE1CD1632B004EE3D2 /* WDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDConstants.h; sourceTree = "<group>"; };
+		0D7365CF1CD1632B004EE3D2 /* WDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDConstants.m; sourceTree = "<group>"; };
+		0D7365D11CD173FC004EE3D2 /* WDLoginManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLoginManagerTest.m; sourceTree = "<group>"; };
+		0D7365D61CD1887C004EE3D2 /* WDLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDLoginManager.h; sourceTree = "<group>"; };
+		0D7365D71CD1887C004EE3D2 /* WDLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLoginManager.m; sourceTree = "<group>"; };
+		0D7365D91CD18DE4004EE3D2 /* WDHistoryDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDHistoryDisplayer.h; path = Controllers/WDHistoryDisplayer.h; sourceTree = "<group>"; };
+		0D7365DA1CD18DE4004EE3D2 /* WDHistoryDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WDHistoryDisplayer.m; path = Controllers/WDHistoryDisplayer.m; sourceTree = "<group>"; };
+		0D7366021CD2BF31004EE3D2 /* angle-mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angle-mask@2x.png"; sourceTree = "<group>"; };
+		0D7366031CD2BF31004EE3D2 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		0D7366041CD2BF31004EE3D2 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		0D7366051CD2BF31004EE3D2 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		0D81C65D1CD574D600A602EF /* WDMeasurementTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDMeasurementTest.m; sourceTree = "<group>"; };
+		0DBEC4EB1CD52C3200739036 /* WDMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDMeasurement.h; path = Models/WDMeasurement.h; sourceTree = "<group>"; };
+		0DBEC4EC1CD52C3200739036 /* WDMeasurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WDMeasurement.m; path = Models/WDMeasurement.m; sourceTree = "<group>"; };
+		0DBEC64E1CD5302C00739036 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		0DBEC6681CD5337400739036 /* WandaHealthTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WandaHealthTracker-Bridging-Header.h"; sourceTree = "<group>"; };
+		0DBEC6721CD5404300739036 /* WSDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDUtils.h; sourceTree = "<group>"; };
+		0DBEC6731CD5404300739036 /* WSDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSDUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DBEC65D1CD5303E00739036 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +159,7 @@
 				0D7365A01CD15FF7004EE3D2 /* WandaHealthTracker */,
 				0D7365BA1CD15FF7004EE3D2 /* WandaHealthTrackerTests */,
 				0D73659F1CD15FF7004EE3D2 /* Products */,
+				0DBEC64E1CD5302C00739036 /* Charts.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +175,11 @@
 		0D7365A01CD15FF7004EE3D2 /* WandaHealthTracker */ = {
 			isa = PBXGroup;
 			children = (
+				0D7366001CD2BF27004EE3D2 /* SDKs */,
+				0D7365CD1CD16319004EE3D2 /* ToolAssets */,
+				0D7365C81CD161AD004EE3D2 /* Controllers */,
+				0D7365C71CD161A6004EE3D2 /* Models */,
+				0D7365C61CD1601A004EE3D2 /* Views */,
 				0D7365A41CD15FF7004EE3D2 /* AppDelegate.h */,
 				0D7365A51CD15FF7004EE3D2 /* AppDelegate.m */,
 				0D7365A71CD15FF7004EE3D2 /* ViewController.h */,
@@ -97,7 +196,11 @@
 		0D7365A11CD15FF7004EE3D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0DBEC6721CD5404300739036 /* WSDUtils.h */,
+				0DBEC6731CD5404300739036 /* WSDUtils.m */,
 				0D7365A21CD15FF7004EE3D2 /* main.m */,
+				0DBEC6681CD5337400739036 /* WandaHealthTracker-Bridging-Header.h */,
+				0D5CBEBA1CD5B1BF0084B2E6 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -107,8 +210,93 @@
 			children = (
 				0D7365BB1CD15FF7004EE3D2 /* WandaHealthTrackerTests.m */,
 				0D7365BD1CD15FF7004EE3D2 /* Info.plist */,
+				0D7365D11CD173FC004EE3D2 /* WDLoginManagerTest.m */,
+				0D13E8F61CD56C03001B6B03 /* WDLoginManager+Test.h */,
+				0D13E8F71CD56C03001B6B03 /* WDLoginManager+Test.m */,
+				0D81C65D1CD574D600A602EF /* WDMeasurementTest.m */,
 			);
 			path = WandaHealthTrackerTests;
+			sourceTree = "<group>";
+		};
+		0D7365C61CD1601A004EE3D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0D7365C71CD161A6004EE3D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0D7365C91CD16203004EE3D2 /* Services */,
+				0DBEC4EB1CD52C3200739036 /* WDMeasurement.h */,
+				0DBEC4EC1CD52C3200739036 /* WDMeasurement.m */,
+				0D5CBEB41CD5A3070084B2E6 /* WDMeasurementGeneral.h */,
+				0D5CBEB51CD5A3070084B2E6 /* WDMeasurementGeneral.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0D7365C81CD161AD004EE3D2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D7365D91CD18DE4004EE3D2 /* WDHistoryDisplayer.h */,
+				0D7365DA1CD18DE4004EE3D2 /* WDHistoryDisplayer.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0D7365C91CD16203004EE3D2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0D7365CA1CD16239004EE3D2 /* PatientMeasurementService.h */,
+				0D7365CB1CD16239004EE3D2 /* PatientMeasurementService.m */,
+				0D7365D61CD1887C004EE3D2 /* WDLoginManager.h */,
+				0D7365D71CD1887C004EE3D2 /* WDLoginManager.m */,
+				0D5CBEB71CD5AB5E0084B2E6 /* WDMeasurementBuilder.h */,
+				0D5CBEB81CD5AB5E0084B2E6 /* WDMeasurementBuilder.m */,
+			);
+			name = Services;
+			path = Models/Services;
+			sourceTree = "<group>";
+		};
+		0D7365CD1CD16319004EE3D2 /* ToolAssets */ = {
+			isa = PBXGroup;
+			children = (
+				0D7365CE1CD1632B004EE3D2 /* WDConstants.h */,
+				0D7365CF1CD1632B004EE3D2 /* WDConstants.m */,
+			);
+			path = ToolAssets;
+			sourceTree = "<group>";
+		};
+		0D7366001CD2BF27004EE3D2 /* SDKs */ = {
+			isa = PBXGroup;
+			children = (
+				0D7366011CD2BF31004EE3D2 /* SVProgressHUD */,
+			);
+			path = SDKs;
+			sourceTree = "<group>";
+		};
+		0D7366011CD2BF31004EE3D2 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				0D7366021CD2BF31004EE3D2 /* angle-mask@2x.png */,
+				0D7366031CD2BF31004EE3D2 /* LICENSE.txt */,
+				0D7366041CD2BF31004EE3D2 /* SVProgressHUD.h */,
+				0D7366051CD2BF31004EE3D2 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		0DBEC64F1CD5302C00739036 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0DBEC6561CD5302D00739036 /* Charts.framework */,
+				0DBEC6581CD5302D00739036 /* Charts.framework */,
+				0DBEC65A1CD5302D00739036 /* Charts.framework */,
+				0DBEC65C1CD5302D00739036 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,10 +309,12 @@
 				0D73659A1CD15FF7004EE3D2 /* Sources */,
 				0D73659B1CD15FF7004EE3D2 /* Frameworks */,
 				0D73659C1CD15FF7004EE3D2 /* Resources */,
+				0DBEC6611CD5303F00739036 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0DBEC6601CD5303E00739036 /* PBXTargetDependency */,
 			);
 			name = WandaHealthTracker;
 			productName = WandaHealthTracker;
@@ -178,6 +368,12 @@
 			mainGroup = 0D7365951CD15FF7004EE3D2;
 			productRefGroup = 0D73659F1CD15FF7004EE3D2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0DBEC64F1CD5302C00739036 /* Products */;
+					ProjectRef = 0DBEC64E1CD5302C00739036 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0D73659D1CD15FF7004EE3D2 /* WandaHealthTracker */,
@@ -186,6 +382,37 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		0DBEC6561CD5302D00739036 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 0DBEC6551CD5302D00739036 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0DBEC6581CD5302D00739036 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 0DBEC6571CD5302D00739036 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0DBEC65A1CD5302D00739036 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 0DBEC6591CD5302D00739036 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0DBEC65C1CD5302D00739036 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 0DBEC65B1CD5302D00739036 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		0D73659C1CD15FF7004EE3D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -193,6 +420,8 @@
 			files = (
 				0D7365B11CD15FF7004EE3D2 /* LaunchScreen.storyboard in Resources */,
 				0D7365AE1CD15FF7004EE3D2 /* Assets.xcassets in Resources */,
+				0D7366061CD2BF31004EE3D2 /* angle-mask@2x.png in Resources */,
+				0D7366071CD2BF31004EE3D2 /* LICENSE.txt in Resources */,
 				0D7365AC1CD15FF7004EE3D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,8 +441,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D7365A91CD15FF7004EE3D2 /* ViewController.m in Sources */,
+				0DBEC4ED1CD52C3200739036 /* WDMeasurement.m in Sources */,
+				0D7366081CD2BF31004EE3D2 /* SVProgressHUD.m in Sources */,
 				0D7365A61CD15FF7004EE3D2 /* AppDelegate.m in Sources */,
+				0D7365D81CD1887C004EE3D2 /* WDLoginManager.m in Sources */,
+				0D7365CC1CD16239004EE3D2 /* PatientMeasurementService.m in Sources */,
+				0D7365D01CD1632B004EE3D2 /* WDConstants.m in Sources */,
+				0D5CBEB61CD5A3070084B2E6 /* WDMeasurementGeneral.m in Sources */,
 				0D7365A31CD15FF7004EE3D2 /* main.m in Sources */,
+				0D5CBEB91CD5AB5E0084B2E6 /* WDMeasurementBuilder.m in Sources */,
+				0D7365DB1CD18DE4004EE3D2 /* WDHistoryDisplayer.m in Sources */,
+				0DBEC6741CD5404300739036 /* WSDUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +459,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D13E8F81CD56C03001B6B03 /* WDLoginManager+Test.m in Sources */,
+				0D7365D21CD173FC004EE3D2 /* WDLoginManagerTest.m in Sources */,
 				0D7365BC1CD15FF7004EE3D2 /* WandaHealthTrackerTests.m in Sources */,
+				0D81C65E1CD574D600A602EF /* WDMeasurementTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +473,11 @@
 			isa = PBXTargetDependency;
 			target = 0D73659D1CD15FF7004EE3D2 /* WandaHealthTracker */;
 			targetProxy = 0D7365B81CD15FF7004EE3D2 /* PBXContainerItemProxy */;
+		};
+		0DBEC6601CD5303E00739036 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 0DBEC65F1CD5303E00739036 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -343,10 +589,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_PREFIX_HEADER = WandaHealthTracker/PrefixHeader.pch;
 				INFOPLIST_FILE = WandaHealthTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsida.WandaHealthTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WandaHealthTracker/WandaHealthTracker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -354,10 +606,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_PREFIX_HEADER = WandaHealthTracker/PrefixHeader.pch;
 				INFOPLIST_FILE = WandaHealthTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsida.WandaHealthTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WandaHealthTracker/WandaHealthTracker-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -404,6 +661,7 @@
 				0D7365C21CD15FF7004EE3D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D7365C31CD15FF7004EE3D2 /* Build configuration list for PBXNativeTarget "WandaHealthTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +670,7 @@
 				0D7365C51CD15FF7004EE3D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
