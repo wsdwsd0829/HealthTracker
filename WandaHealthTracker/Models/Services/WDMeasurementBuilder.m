@@ -29,6 +29,8 @@
     
 }
 -(void)measurementService:(PatientMeasurementService *)pms successWithData:(NSData *)data{
+    //[WSDUtils logDataForTesting:data withFileName:@"SampleData.bin"];
+    
     [self.measurements addObjectsFromArray: [self parseResults:data]];
     WDMeasurementGeneral* earliestMeasurement = [self.measurements lastObject];
     //have enouth data to earliest date
@@ -52,7 +54,7 @@
         [self.delegate builder:self failedBuildResultsWithError:error];
     }
     if(![result objectForKey:@"results"]){
-        NSError *err = [NSError errorWithDomain:WDFetchResultsInvalid code:1000 userInfo:nil];
+        NSError *err = [NSError errorWithDomain:WDErrorDomainFetchResultsInvalid code:WDErrorCodeFetchResultsInvalid userInfo:nil];
         [self.delegate builder:self failedBuildResultsWithError:err];
     }
     

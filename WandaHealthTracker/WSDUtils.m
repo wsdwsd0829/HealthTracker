@@ -103,6 +103,7 @@
     return dateFormatter;
 }
 
+
 +(void)checkICloudCredentialsSuccess:(void(^)(CKAccountStatus accountStatus))successHandler
                               failed:(void(^)(NSError*  error))failHandelr{
     [[CKContainer defaultContainer] accountStatusWithCompletionHandler:^(CKAccountStatus accountStatus, NSError *error) {
@@ -151,5 +152,13 @@
 +(float)randomFloatBetween:(float)smallNumber and:(float)bigNumber {
     float diff = bigNumber - smallNumber;
     return (((float) (arc4random() % ((unsigned)RAND_MAX + 1)) / RAND_MAX) * diff) + smallNumber;
+}
+
++(void) logDataForTesting:(NSData*)data withFileName:(NSString*)filename{
+    NSString* dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString* logDataPath = [dir stringByAppendingPathComponent:filename];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:logDataPath]){
+        [data writeToFile:logDataPath atomically:YES];
+    }
 }
 @end

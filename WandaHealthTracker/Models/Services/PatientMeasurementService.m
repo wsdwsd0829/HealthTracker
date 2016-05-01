@@ -11,6 +11,7 @@
 #import "WDMeasurementBuilder.h"
 
 @interface PatientMeasurementService()
+@property sessionTaskHandler sessHandler;
 @end
 
 @implementation PatientMeasurementService
@@ -19,10 +20,27 @@
     self = [super init];
     if (self) {
         self.delegate = builder;
+        
+        __weak id weakSelf = self;
+        self.sessHandler = ^(NSData *  data, NSURLResponse *  response, NSError *  error, NSString* type){
+            PatientMeasurementService* strongSelf = weakSelf;
+            if(error == nil && ((NSHTTPURLResponse*)response).statusCode == 200){
+                [strongSelf.delegate measurementService:strongSelf successWithData:data];
+            }else{
+                [strongSelf.delegate measurementService:strongSelf failedWithError:error];
+            }
+            NSLog(@"data string %@, response %@, error %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], response, error);
+        };
     }
     return self;
 }
 -(void)fetchMeasurementUrl:(NSString*)urlStr withHandler:(sessionTaskHandler) sessionHander{
+    if(!urlStr || urlStr.length == 0){
+        NSError* error = [NSError errorWithDomain:WDErrorDomainURLInvalid code:WDErrorCodeURLInvalid userInfo:@{@"description":@"url cannot be nil or empty"}];
+        sessionHander(nil,nil, error, nil);
+        return;
+    }
+    
     NSURL* measurementUrl = [NSURL URLWithString:urlStr];
     
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:measurementUrl];
@@ -37,23 +55,14 @@
     
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    
     NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
-    NSString* type = [self typeOfMeasurementFromUrlString:urlStr];
+    NSString* type = [self typeOfMeasurementFromUrlString:urlStr forTypeKey:kMeasurementParamType];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    
-        if(error == nil && ((NSHTTPURLResponse*)response).statusCode == 200){
-            [self.delegate measurementService:self successWithData:data];
-        }else{
-            [self.delegate measurementService:self failedWithError:error];
-        }
+        ((sessionTaskHandler)[self.sessHandler copy])(data, response, error, type);
         if(sessionHander){
             sessionHander(data, response, error, type);
         }
-        
-        NSLog(@"data string %@, response %@, error %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], response, error);
     }];
     [dataTask resume];
 
@@ -76,10 +85,11 @@
     components.queryItems = queryItems;
    return [components string];
 }
--(NSString*) typeOfMeasurementFromUrlString:(NSString*)urlStr{
+//-(NSString*) typeOfMeasurementFromUrlString:(NSString*)urlStr{
+-(NSString*) typeOfMeasurementFromUrlString:(NSString*)urlStr forTypeKey:(NSString*)typeKey{
     NSURLComponents *components = [NSURLComponents componentsWithString:urlStr];
     for(NSURLQueryItem* item in components.queryItems){
-        if([item.name isEqualToString:kMeasurementParamType]){
+        if([item.name isEqualToString:typeKey]){
             return item.value;
         }
     }

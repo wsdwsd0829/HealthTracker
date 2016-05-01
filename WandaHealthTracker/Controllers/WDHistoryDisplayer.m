@@ -11,7 +11,6 @@
 #import "WDConstants.h"
 #import "SVProgressHUD.h"
 #import "WDMeasurementGeneral.h"
-#import "WDMeasurement.h"
 #import "WSDUtils.h"
 
 @interface WDHistoryDisplayer()
@@ -59,6 +58,8 @@
     [SVProgressHUD show];
     self.displayDayCount = 30;
     
+    
+
     //set up builder and service for HEART RATE
     self.heartBuilder = [[WDMeasurementBuilder alloc] initWithDelegate:self];
     self.heartBuilder.earliestDate = [WSDUtils dateBeforeDate:[NSDate date] withNumberOfDays:self.displayDayCount];
@@ -87,9 +88,12 @@
         });
 }
 -(void)builder:(WDMeasurementBuilder *)builder failedBuildResultsWithError:(NSError *)error{
-    [WSDUtils generalAlertWithTitle:@"Failed" withMessage:[error localizedDescription] withDelegate:self withDefaultBtnMsg:@"OK"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+        [WSDUtils generalAlertWithTitle:@"Failed" withMessage:[error localizedDescription] withDelegate:self withDefaultBtnMsg:@"OK"];
+    });
 }
-                       
+                   
 #pragma mark Drawing charts
 -(void) showBarChartForWeight{
     

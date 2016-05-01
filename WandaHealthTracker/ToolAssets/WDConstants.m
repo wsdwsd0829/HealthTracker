@@ -35,6 +35,8 @@ NSString* const kTestPatientUsername = @"c2pvali2";
 NSString* const kTestPatientPassword = @"BHx5YSz5Xu";
 
 #pragma mark - Error Domains
-NSString* const WDFetchResultsInvalid = @"WDFetchResultsInvalid";
+NSString* const WDErrorDomainFetchResultsInvalid = @"WDFetchResultsInvalid";
+NSString* const WDErrorDomainURLInvalid = @"WDErrorDomainURLInvalid";
+
 
 @end

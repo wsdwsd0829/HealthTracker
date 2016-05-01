@@ -28,4 +28,6 @@
 +(void)simpleAlertForController:(UIViewController*)viewController;
 
 +(float)randomFloatBetween:(float)smallNumber and:(float)bigNumber;
+
++(void) logDataForTesting:(NSData*)data withFileName:(NSString*)filename;
 @end

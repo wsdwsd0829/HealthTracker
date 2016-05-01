@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 typedef void(^sessionTaskHandler)(NSData *  data, NSURLResponse *  response, NSError *  error, NSString* type);
-
+typedef NS_ENUM(NSInteger, WDERROR_CODE){
+    WDErrorCodeFetchResultsInvalid = 1001,
+    WDErrorCodeURLInvalid = 1002
+};
 @interface WDConstants : NSObject
 
 #pragma mark - Query Apis
@@ -38,5 +41,7 @@ extern NSString* const kTestPatientUsername;
 extern NSString* const kTestPatientPassword;
 
 #pragma mark - Error Domains
-extern NSString* const WDFetchResultsInvalid;
+extern NSString* const WDErrorDomainFetchResultsInvalid;
+extern NSString* const WDErrorDomainURLInvalid;
+
 @end
