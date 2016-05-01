@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 -(IBAction)login:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+
 - (IBAction)tryDisplayChart:(id)sender;
 
 @end
@@ -35,19 +37,23 @@
 
 -(IBAction)login:(id)sender{
     __weak ViewController* weakself = self;
-    
+    self.loginBtn.userInteractionEnabled = NO;
     [[WDLoginManager defaultManager] loginWithUsername:self.usernameField.text withPassword:self.passwordField.text withHandler:^(NSString *token, NSError* error) {
         ViewController * strongSelf = weakself;
         //perform segue
-        if(token && token.length>0){
-            // [[NSOperationQueue mainQueue] addOperationWithBlock:^{           // }];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [strongSelf displayChart];
-            });
-        }else{
-            //TODO: alert error
-            [WSDUtils generalAlertWithTitle:@"Login Failed" withMessage:@"Faild to login" withDelegate:strongSelf withDefaultBtnMsg:@"OK"];
-        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.loginBtn.userInteractionEnabled = YES;
+            if(token && token.length>0){
+                // [[NSOperationQueue mainQueue] addOperationWithBlock:^{           // }];
+              
+                    [strongSelf displayChart];
+                
+            }else{
+                //TODO: alert error
+                [WSDUtils generalAlertWithTitle:@"Login Failed" withMessage:@"Failed to login" withDelegate:strongSelf withDefaultBtnMsg:@"OK"];
+            }
+        });
     }];
 }
 

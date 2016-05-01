@@ -31,7 +31,7 @@ NSString* const vMeasurementParamOrderingTimeAsc = @"measurement_time";
 
 #pragma mark - Test data
 //TODO: to remove before launch
-NSString* const kTestPatientUsername = @"c2pvali2";
+NSString* const kTestPatientUsername = @"c2pval";
 NSString* const kTestPatientPassword = @"BHx5YSz5Xu";
 
 #pragma mark - Error Domains
