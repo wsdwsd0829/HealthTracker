@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef void(^tokenHandler)(NSString* token);
+typedef void(^tokenHandler)(NSString* token, NSError* error);
 
 @interface WDLoginManager : NSObject
 

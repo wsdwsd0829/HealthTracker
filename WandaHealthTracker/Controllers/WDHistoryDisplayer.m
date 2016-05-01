@@ -74,29 +74,33 @@
 }
 #pragma mark WDMeasurementDelegate
 -(void)builder:(WDMeasurementBuilder *)builder didBuildResults:(NSArray *)measurements{
+        __weak id weakself = self;
         dispatch_async(dispatch_get_main_queue(), ^{
+            WDHistoryDisplayer * strongSelf = weakself;
             //TODO: handler error
             [SVProgressHUD dismiss];
             
             if(builder == self.heartBuilder){
-                self.measurementsHeart = measurements;
-                [self showLineChartForHeartRate];
+                strongSelf.measurementsHeart = measurements;
+                [strongSelf showLineChartForHeartRate];
             }else if(builder == self.weightBuilder){
-                self.measurementsWeight = measurements;
-                [self showBarChartForWeight];
+                strongSelf.measurementsWeight = measurements;
+                [strongSelf showBarChartForWeight];
             }
+            
         });
 }
 -(void)builder:(WDMeasurementBuilder *)builder failedBuildResultsWithError:(NSError *)error{
+     __weak id weakself = self;
     dispatch_async(dispatch_get_main_queue(), ^{
+        WDHistoryDisplayer * strongSelf = weakself;
         [SVProgressHUD dismiss];
-        [WSDUtils generalAlertWithTitle:@"Failed" withMessage:[error localizedDescription] withDelegate:self withDefaultBtnMsg:@"OK"];
+        [WSDUtils generalAlertWithTitle:@"Failed" withMessage:[error localizedDescription] withDelegate:strongSelf withDefaultBtnMsg:@"OK"];
     });
 }
                    
 #pragma mark Drawing charts
 -(void) showBarChartForWeight{
-    
     self.barChartView.delegate = self;
     self.barChartView.descriptionText = @"";
     self.barChartView.drawBarShadowEnabled = NO;
@@ -318,4 +322,21 @@
     return (NSInteger)(max - min + 1);
 }
 
+
+-(void)dealloc{
+//    self.lineChartView.legend = nil;
+//    self.barChartView.legend = nil;
+    [self.lineChartView.data removeDataSetByIndex:0];
+    [self.barChartView.data removeDataSetByIndex:0];
+    self.lineChartView.data = nil;
+    self.barChartView.data = nil;
+    self.barChartView = nil;
+    self.lineChartView = nil;
+    self.heartBuilder.delegate = nil;
+    self.weightBuilder.delegate = nil;
+    self.heartBuilder = nil;
+    self.weightBuilder = nil;
+    
+    //[super dealloc];
+}
 @end

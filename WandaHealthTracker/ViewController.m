@@ -34,15 +34,19 @@
 }
 
 -(IBAction)login:(id)sender{
-    [[WDLoginManager defaultManager] loginWithUsername:self.usernameField.text withPassword:self.passwordField.text withHandler:^(NSString *token) {
+    __weak ViewController* weakself = self;
+    
+    [[WDLoginManager defaultManager] loginWithUsername:self.usernameField.text withPassword:self.passwordField.text withHandler:^(NSString *token, NSError* error) {
+        ViewController * strongSelf = weakself;
         //perform segue
-        if(token.length>0){
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [self displayChart];
-            }];
+        if(token && token.length>0){
+            // [[NSOperationQueue mainQueue] addOperationWithBlock:^{           // }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [strongSelf displayChart];
+            });
         }else{
             //TODO: alert error
-            [WSDUtils generalAlertWithTitle:@"Login Failed" withMessage:@"Faild to login" withDelegate:self withDefaultBtnMsg:@"OK"];
+            [WSDUtils generalAlertWithTitle:@"Login Failed" withMessage:@"Faild to login" withDelegate:strongSelf withDefaultBtnMsg:@"OK"];
         }
     }];
 }

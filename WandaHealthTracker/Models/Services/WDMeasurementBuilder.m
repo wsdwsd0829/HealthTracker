@@ -26,7 +26,7 @@
 }
 
 -(void)measurementService:(PatientMeasurementService *)pms failedWithError:(NSError *)error{
-    
+    [self.delegate builder:self failedBuildResultsWithError:error];
 }
 -(void)measurementService:(PatientMeasurementService *)pms successWithData:(NSData *)data{
     //[WSDUtils logDataForTesting:data withFileName:@"SampleData.bin"];

@@ -17,7 +17,7 @@
 
 @interface WDMeasurementBuilder : NSObject <WDMeasurementServiceDelegate>
 
-@property id<WDMeasurementDelegate> delegate;
+@property (weak, nonatomic) id<WDMeasurementDelegate> delegate;
 @property NSDate* earliestDate;
 
 -(instancetype)initWithDelegate:(id<WDMeasurementDelegate>) delegate;

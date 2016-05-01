@@ -11,7 +11,7 @@
 #import "WDMeasurementBuilder.h"
 
 @interface PatientMeasurementService()
-@property sessionTaskHandler sessHandler;
+@property (copy) sessionTaskHandler sessHandler;
 @end
 
 @implementation PatientMeasurementService
@@ -20,24 +20,16 @@
     self = [super init];
     if (self) {
         self.delegate = builder;
-        
-        __weak id weakSelf = self;
-        self.sessHandler = ^(NSData *  data, NSURLResponse *  response, NSError *  error, NSString* type){
-            PatientMeasurementService* strongSelf = weakSelf;
-            if(error == nil && ((NSHTTPURLResponse*)response).statusCode == 200){
-                [strongSelf.delegate measurementService:strongSelf successWithData:data];
-            }else{
-                [strongSelf.delegate measurementService:strongSelf failedWithError:error];
-            }
-            NSLog(@"data string %@, response %@, error %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], response, error);
-        };
-    }
+        //self.sessHandler = ^(NSData *  data, NSURLResponse *  response, NSError *  error, NSString* type){}
+           }
     return self;
 }
 -(void)fetchMeasurementUrl:(NSString*)urlStr withHandler:(sessionTaskHandler) sessionHander{
     if(!urlStr || urlStr.length == 0){
         NSError* error = [NSError errorWithDomain:WDErrorDomainURLInvalid code:WDErrorCodeURLInvalid userInfo:@{@"description":@"url cannot be nil or empty"}];
-        sessionHander(nil,nil, error, nil);
+        if(sessionHander){
+            ((sessionTaskHandler)[sessionHander copy])(nil,nil, error, nil);
+        }
         return;
     }
     
@@ -58,15 +50,53 @@
     NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
     NSString* type = [self typeOfMeasurementFromUrlString:urlStr forTypeKey:kMeasurementParamType];
+    
+    //__weak PatientMeasurementService* weakself = self; //no need here
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        ((sessionTaskHandler)[self.sessHandler copy])(data, response, error, type);
+        
+        PatientMeasurementService * strongSelf = self;
+        if(error == nil && ((NSHTTPURLResponse*)response).statusCode == 200){
+            [strongSelf.delegate measurementService:strongSelf successWithData:data];
+        }else{
+            //system error
+            if(error != nil){
+                [strongSelf.delegate measurementService:strongSelf failedWithError:error];
+                return;
+            }else{
+                //application error;
+                if(((NSHTTPURLResponse*)response).statusCode == 401){
+                    
+                    NSError * parseError = nil;
+                    NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+                    if(parseError){
+                        [strongSelf.delegate measurementService:strongSelf failedWithError:parseError];
+                    }else{
+                        if([dict objectForKey:@"detail"]){
+                            NSError* serverReturnError = [NSError errorWithDomain:WDErrorDomainTokenInvalid code:WDErrorCodeTokenInvalid userInfo:@{@"description":dict[@"detail"]}];
+                            [strongSelf.delegate measurementService:strongSelf failedWithError:serverReturnError];
+                        }else{
+                             NSError* serverReturnError = [NSError errorWithDomain:WDErrorDomainTokenInvalid code:WDErrorCodeTokenInvalid userInfo:@{@"description":dict}];
+                            [strongSelf.delegate measurementService:strongSelf failedWithError:serverReturnError];
+                        }
+                    }
+                }else{
+                    NSString* errorInfo = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    NSError* serverReturnError = [NSError errorWithDomain:WDErrorDomainServerGeneralInvalid code:WDErrorCodeServerGeneralInvalid userInfo:@{@"description":errorInfo}];
+                    [strongSelf.delegate measurementService:strongSelf failedWithError:serverReturnError];
+                }
+            }
+            
+        }
+        NSLog(@"data string %@, response %@, error %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], response, error);
+        
+        //((sessionTaskHandler)[strongSelf.sessHandler copy])(data, response, error, type);
         if(sessionHander){
-            sessionHander(data, response, error, type);
+            ((sessionTaskHandler)[sessionHander copy])(data, response, error, type);
+
         }
     }];
     [dataTask resume];
-
-    
+    [session finishTasksAndInvalidate];
 }
 -(void)fetchMeasurementOfType:(NSString*)type ordering:(NSString*)ordering  withHandler:(sessionTaskHandler) sessionHander{
     NSDictionary* params = @{kMeasurementParamType: type,

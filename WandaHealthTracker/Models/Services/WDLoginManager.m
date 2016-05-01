@@ -22,8 +22,8 @@
 
 #pragma mark - Public Apis
 -(void)loginWithUsername:(NSString *)username withPassword:(NSString *)password withHandler:(tokenHandler)loginHandler{
-    [self fetchTokenForUser:username withPassword:password withHandler:^(NSString *token) {
-        loginHandler(token);
+    [self fetchTokenForUser:username withPassword:password withHandler:^(NSString *token, NSError* error) {
+        loginHandler(token, error);
     }];
 }
 -(void)fetchTokenForUser:(NSString *)username withPassword:(NSString *)password withHandler:(tokenHandler)tokenHandler{
@@ -35,10 +35,19 @@
         if(!error && [(NSHTTPURLResponse*)response statusCode] == 200){
             NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil]; //[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             self.token = result[@"token"];
-            tokenHandler(self.token);
+            tokenHandler(self.token, nil);
+        }else{
+            if(error){
+                tokenHandler(nil, error);
+            }else{
+                NSString* desc = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSError* error = [NSError errorWithDomain:WDErrorDomainGetTokenFail code:WDErrorCodeGetTokenFail userInfo:@{@"description": desc}];
+                tokenHandler(nil, error);
+            }
         }
     }];
     [dataTask resume];
+    [session finishTasksAndInvalidate];
 }
 -(NSURLRequest*)getTokenURLRequestForUser:(NSString *)username withPassword:(NSString *)password{
     NSURL *tokenUrl = [NSURL URLWithString:kTokenApi];

@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 typedef void(^sessionTaskHandler)(NSData *  data, NSURLResponse *  response, NSError *  error, NSString* type);
 typedef NS_ENUM(NSInteger, WDERROR_CODE){
+    WDErrorCodeServerGeneralInvalid = 1000,
     WDErrorCodeFetchResultsInvalid = 1001,
-    WDErrorCodeURLInvalid = 1002
+    WDErrorCodeURLInvalid = 1002,
+    WDErrorCodeTokenInvalid = 1003,
+    WDErrorCodeGetTokenFail = 1004
 };
 @interface WDConstants : NSObject
 
@@ -41,7 +44,10 @@ extern NSString* const kTestPatientUsername;
 extern NSString* const kTestPatientPassword;
 
 #pragma mark - Error Domains
+extern NSString* const WDErrorDomainServerGeneralInvalid;
 extern NSString* const WDErrorDomainFetchResultsInvalid;
 extern NSString* const WDErrorDomainURLInvalid;
+extern NSString* const WDErrorDomainTokenInvalid;
+extern NSString* const WDErrorDomainGetTokenFail;
 
 @end
